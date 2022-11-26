@@ -7,29 +7,6 @@ public class Employee {
     private static int counter;
     private int id = counter;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return department == employee.department && Double.compare(employee.salary, salary) == 0 && id == employee.id && Objects.equals(employeeName, employee.employeeName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(employeeName, department, salary, id);
-    }
-
-    @Override
-    public String toString() {
-        return
-                "Имя сотрудника: ='" + employeeName + '\'' +
-                        ", Отдел: ='" + department + '\'' +
-                        ", Зарплата: =" + salary +
-                        ", id=" + id
-                ;
-    }
-
     public int getCounter() {
         return counter;
     }
@@ -68,5 +45,28 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         counter++;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return department == employee.department && Double.compare(employee.salary, salary) == 0 && id == employee.id && Objects.equals(employeeName, employee.employeeName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeName, department, salary, id);
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Имя сотрудника: ='" + employeeName + '\'' +
+                        ", Отдел: ='" + department + '\'' +
+                        ", Зарплата: =" + salary +
+                        ", id=" + id
+                ;
     }
 }
